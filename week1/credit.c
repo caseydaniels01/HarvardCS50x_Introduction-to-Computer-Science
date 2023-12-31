@@ -28,13 +28,19 @@ int main(void)
 long nDigits = 0;
 long input = 0;
 
-    do
-    {
+   // do
+    //{
         printf("Number: ");
         scanf("%ld", &input);
         nDigits = floor(log10(labs(input))) + 1;
-    }
-    while( nDigits != 13 && nDigits != 15 && nDigits != 16 );
+   //}
+    //while( nDigits != 13 && nDigits != 15 && nDigits != 16 );
+
+    if (nDigits != 13 && nDigits != 15 && nDigits != 16 )
+        {
+            printf("INVALID\n");
+            exit(0);
+        }
 
     char Card;
 
@@ -84,14 +90,18 @@ else if(getFirst2Digits(input) == 51 || getFirst2Digits(input) == 52 || getFirst
     Card = 'M';
     printf("MASTERCARD\n");
 }
-else if(final_total % 10 != 0)
-{
-    Card = 'I';
-    printf("INVALID\n");
-}
 else
 {
     Card = 'I';
+}
+
+if(final_total % 10 != 0)
+{
+    Card = 'I';
+}
+
+if( Card == 'I')
+{
     printf("INVALID\n");
 }
 
