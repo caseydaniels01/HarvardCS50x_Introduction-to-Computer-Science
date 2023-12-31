@@ -34,14 +34,40 @@ long input = 0;
         scanf("%ld", &input);
         nDigits = floor(log10(labs(input))) + 1;
     }
-    while( nDigits != 13 && nDigits != 15 && nDigits != 16 && nDigits != 4 );
+    while( nDigits != 13 && nDigits != 15 && nDigits != 16 && nDigits != 8 );
 
     char Card;
 
     int first_int = getFirstDigit(input);
-    printf("%d\n", first_int);
     int two_first_int = getFirst2Digits(input);
-    printf("%d\n", two_first_int);
+
+long check_one = input;
+long check_one_total = 0;
+
+while(check_one > 0)
+{
+    long lastNumber = check_one / 10;
+    long everyOther = check_one % 10;
+    check_one = check_one / 100;
+    printf("%li\n", everyOther);
+    check_one_total += everyOther;
+}
+
+printf("%ld\n", check_one_total);
+
+long check_two = input / 10;
+long check_two_total = 0;
+
+while(check_two > 0)
+{
+    long lastNumbertwo = check_two / 10;
+    long everyOthertwo = check_two % 10;
+    check_two = check_two / 100;
+    printf("%li\n", everyOthertwo);
+    check_two_total += everyOthertwo;
+}
+
+printf("%ld\n", check_two_total);
 
 
 if(first_int == 4)
