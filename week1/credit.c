@@ -108,6 +108,11 @@ if(check_num % 10 != 0)
 }
 else if(first_int == 4)
 {
+        if (nDigits != 13 && nDigits != 16)
+        {
+            printf("INVALID\n");
+            exit(0);
+        }
     //Card = 'V';
    /*     if(check_num % 10 != 0)
     {
@@ -121,6 +126,12 @@ else if(first_int == 4)
 }
 else if(getFirst2Digits(input) == 34 || getFirst2Digits(input) == 37 )
 {
+    if (nDigits != 15)
+        {
+            printf("INVALID\n");
+            exit(0);
+        }
+
     //Card = 'X';
    /*     if(check_num % 10 != 0)
     {
@@ -134,6 +145,11 @@ else if(getFirst2Digits(input) == 34 || getFirst2Digits(input) == 37 )
 }
 else if(getFirst2Digits(input) == 51 || getFirst2Digits(input) == 52 || getFirst2Digits(input) == 53 || getFirst2Digits(input) == 54 || getFirst2Digits(input) == 55)
 {
+        if (nDigits != 16)
+        {
+            printf("INVALID\n");
+            exit(0);
+        }
     //Card = 'M';
    /*     if(check_num % 10 != 0)
     {
@@ -145,7 +161,22 @@ else if(getFirst2Digits(input) == 51 || getFirst2Digits(input) == 52 || getFirst
         //printf("MASTERCARD\n");
     //}
 }
+else
+{
 
+            printf("INVALID\n");
+            exit(0);
+        }
+    //Card = 'M';
+   /*     if(check_num % 10 != 0)
+    {
+        printf("INVALID\n");
+    }
+    else
+    {*/
+       // strcpy(result, "MASTERCARD\n");
+        //printf("MASTERCARD\n");
+    //}
 
 
 //if( Card == 'I')
@@ -154,6 +185,7 @@ else if(getFirst2Digits(input) == 51 || getFirst2Digits(input) == 52 || getFirst
 //}
 
 printf("%s", result);
+
 
 
 }
