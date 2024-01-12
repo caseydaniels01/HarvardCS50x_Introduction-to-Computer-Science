@@ -15,12 +15,27 @@ int calc(string word_check)
     return points;
 }
 
+char remove_punct(string punct_check)
+{
+    char* word[100];
+    for (int i = 0, len = strlen(punct_check); i < len; i++)
+    {
+        if(ispunct(i)== 0)
+         {
+            word[i] = (char)punct_check[i];
+         }
+    }
+    return word;
+}
+
 int main(void)
 {
 
+char first_word_unchecked[100];
 char first_word[100];
 printf("Player 1: ");
-scanf("%s", first_word);
+scanf("%s", first_word_unchecked);
+char first_word = remove_punct(first_word_unchecked);
 char first_word_upper[100];
 int p1i = 0;
     while(first_word[p1i])
