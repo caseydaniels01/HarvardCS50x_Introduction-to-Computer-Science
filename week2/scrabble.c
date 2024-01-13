@@ -15,17 +15,16 @@ int calc(string word_check)
     return points;
 }
 
-char remove_punct(string punct_check)
+char remove_punct(char *punct_check)
 {
-    char* word[100];
-    for (int i = 0, len = strlen(punct_check); i < len; i++)
+    for (int i,j = 0, len = strlen(punct_check); i < len; i++)
     {
-        if(ispunct(i)== 0)
+        if (!ispunct(punct_check[i])) {
          {
-            word[i] = (char)punct_check[i];
+            punct_check[j++] = punct_check[i];
          }
     }
-    return word;
+    punct_check[j] = '\0';
 }
 
 int main(void)
