@@ -1,14 +1,14 @@
-#include <ctype.h>
 #include <cs50.h>
+#include <ctype.h>
 #include <math.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 int calc_words(string text)
 {
     int words = 1;
-    for(int i = 0, len = strlen(text); i < len; i++)
+    for (int i = 0, len = strlen(text); i < len; i++)
     {
         if (text[i] == ' ')
         {
@@ -22,17 +22,13 @@ int calc_words(string text)
 int calc_letters(string text)
 {
     int letters = 0;
-    for(int i = 0, len = strlen(text); i < len; i++)
+    for (int i = 0, len = strlen(text); i < len; i++)
     {
-        if (text[i] == ' ')
+        if (text[i] >= 65 && text[i] <= 90)
         {
-            continue;
+            letters++;
         }
-        else if (ispunct(i)!= 0)
-        {
-            continue;
-        }
-        else
+        else if (text[i] >= 97 && text[i] <= 122)
         {
             letters++;
         }
@@ -44,7 +40,7 @@ int calc_letters(string text)
 int calc_sent(string text)
 {
     int sent = 0;
-    for(int i = 0, len = strlen(text); i < len; i++)
+    for (int i = 0, len = strlen(text); i < len; i++)
     {
         if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
@@ -63,24 +59,26 @@ int main(void)
     int words = calc_words(text);
     int letters = calc_letters(text);
     int sent = calc_sent(text);
-    float L = (((float)letters / (float)words)) * 100;
-    float S = (((float)sent / (float)words)) * 100;
-    float coleman = round(0.0588 * L - 0.296 * S - 15.8);
+    float L = (((float) letters / (float) words)) * 100;
+    float S = (((float) sent / (float) words)) * 100;
+    int coleman = round(0.0588 * L - 0.296 * S - 15.8);
 
-    //printf("words %d ... letters %d ... sentences %d ... L %d ... S %d...coleman %d\n", words, letters, sent, L, S, coleman);
+    // printf("words %d ... letters %d ... sentences %d ... L %f ... S %f...coleman %d\n", words, letters, sent, L, S, coleman);
 
     if (coleman < 1)
-        {
-           printf("Before Grade 1\n");
-           exit(0);
-        }
-    else if( coleman > 15)
-        {
-           printf("Grade 16+\n");
-           exit(0);
-        }
+    {
+        printf("Before Grade 1\n");
+        exit(0);
+    }
+    else if (coleman > 15)
+    {
+        printf("Grade 16+\n");
+        exit(0);
+    }
 
-    switch (coleman) {
+    // Shoudn't have used a switch and instead printf("Grade %i\n", coleman);
+    switch (coleman)
+    {
         case 1:
             printf("Grade 1\n");
             break;
