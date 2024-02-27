@@ -1,0 +1,1 @@
+SELECT title FROM movies JOIN stars sbc ON movies.id = sbc.movie_id JOIN people pbc ON sbc.person_id = pbc.id JOIN stars sjl ON movies.id = sjl.movie_id JOIN people pjl ON sjl.person_id = pjl.id WHERE pbc.name = 'Bradley Cooper' AND pjl.name = 'Jennifer Lawrence';
