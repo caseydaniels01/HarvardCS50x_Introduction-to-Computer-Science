@@ -1,0 +1,52 @@
+-- Keep a log of any SQL queries you execute as you solve the mystery.
+SELECT description FROM crime_scene_reports WHERE month = '7' AND day = '28' AND street = 'Humphrey Street';
+SELECT transcript FROM interviews WHERE month = '7' AND day = '28' AND year = '2023';
+SELECT id FROM crime_scene_reports WHERE month = '7' AND day = '28' AND street = 'Humphrey Street';
+SELECT transcript FROM interviews WHERE month = '7' AND day = '28' AND year = '2023' AND transcript LIKE '%bakery%';
+SELECT name FROM people JOIN bakery_security_logs ON bakery_security_logs.license_plate = people.license_plate WHERE month = '7' AND day = '28' AND year = '2023' AND hour = '10' AND minute >= '5' AND minute <= '25' AND activity = "exit";
+Vanessa
+Bruce
+Barry
+Luca
+Sofia
+Iman
+Diana
+Kelsey
+SELECT name FROM people JOIN bank_accounts ON bank_accounts.person_id = people.id JOIN atm_transactions ON atm_transactions.account_number = bank_accounts.account_number WHERE month = '7' AND day = '28' AND year = '2023' AND atm_location = "Leggett Street" AND transaction_type = "withdraw";
+Bruce
+Diana
+Brooke
+Kenny
+Iman
+Luca
+Taylor
+Benista
+SELECT name FROM people JOIN passengers ON passengers.passport_number = people.passport_number WHERE passengers.flight_id = (SELECT id FROM flights WHERE month = '7' AND day = '29' AND year = '2023' AND origin_airport_id = (SELECT id FROM airports WHERE city = "Fiftyville") ORDER BY hour,minute LIMIT 1);
+Doris
+Sofia
+Bruce
+Edward
+Kelsey
+Taylor
+Kenny
+Luca
+SELECT name FROM people JOIN phone_calls ON phone_calls.caller = people.phone_number WHERE month = '7' AND day = '28' AND year = '2023' AND duration < '60';
+Sofia
+Kelsey
+Bruce
+Kelsey
+Taylor
+Diana
+Carina
+Kenny
+Benista
+
+-------> Bruce is the only common name, the suspect
+
+SELECT city FROM airports WHERE id = (SELECT destination_airport_id FROM flights WHERE month = '7' AND day = '29' AND year = '2023' ORDER BY hour, minute LIMIT 1);
+
+-------> City is New York City
+
+SELECT name FROM people JOIN phone_calls ON people.phone_number = phone_calls.receiver WHERE month = '7' AND day = '28' AND year = '2023' AND duration < 60 AND caller = (SELECT phone_number FROM people WHERE name = "Bruce");
+
+-------> Accomplice is Robin
