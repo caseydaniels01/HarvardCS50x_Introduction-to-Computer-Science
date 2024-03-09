@@ -1,0 +1,24 @@
+10 HTML Tags:
+1. meta
+2. link
+3. button
+4. div
+5. ul
+6. li
+7. form
+8. div
+9. script
+10. br
+
+5 CSS Properties:
+1. change h1 color
+2. change p background color
+3. set marquee font size
+4. round image corners
+5. change link color
+
+Javascript:
+Click buttons to change text color and background color.
+
+Bootstrap:
+I used bootstrap's navbar on every page to handle navigation around the website.
